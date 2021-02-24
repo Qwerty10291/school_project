@@ -1,0 +1,50 @@
+*{
+    font-family: 'Roboto', sans-serif !important;
+}
+
+#title{
+    font-size: 1.2rem;
+}
+#username{
+    font-size: 1.3rem;
+}
+.text-down{
+   writing-mode: vertical-lr;
+   transform: rotate(180deg);
+}
+.event-conatiner p{
+    margin-bottom: 0px;
+    font-size: 1.25rem;
+}
+.event-date{
+    padding-top: 10%;
+    padding-bottom: 10%;
+    font-size: 1.25rem;
+    margin: auto;
+}
+
+.separator{
+    width: 100%;
+    height: 2%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 500px){
+    .event-conatiner p{
+        font-size: 0.8rem;
+    }
+    .event-conatiner h3{
+        font-size: 0.9rem;
+    }
+}
+@media screen and (max-width: 1000px){
+    .event-data{
+        max-height: 50vh;
+        overflow-y: scroll;
+    }
+    .chat-data{
+        max-height: 50vh;
+        overflow-y: scroll;
+    }
+}

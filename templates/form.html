@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+        integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <title>{{ page_name }}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container">
+            <a href="{{ url_for('index') }}" class="navbar-brand" id="title">Гимназия 102</a>
+            <button class="navbar-toggler" type='button' data-toggle='collapse' data-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
+            
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mr-auto mb-2">
+                    <li class="nav-item"><a href="#" class="nav-link text-dark">Главная</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-dark">События</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-dark">Дневник</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-dark">Чат</a></li>
+                </ul>
+                <a href="#" class="nav-link text-primary" id='username'>{{ username }}</a>
+                <a href="#" class="bg-danger nav-link text-center" style="color: white;">Выход</a>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"
+        integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
