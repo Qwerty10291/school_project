@@ -1,0 +1,80 @@
+{% extends "form.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="url_for('static', filename='css/api.css')">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md-10">
+            <div class="api_key__container">
+                <span class="fs-3">Ключ API: <span class="text-danger">{{ current_user.key }}</span></span>
+            </div>
+            <p class="text-center h2 mb-3 text-info">Описание API</p>
+            <h3>Получение информации о созданных запросах</h3>
+            <p>Для получения всех запросов сделайте GET запрос на /api/queries</p>
+            <p>Возможные строковые параметры: 
+                    key - ваш ключ API</p>
+            <p>Пример запроса: https://zakupkinfo.ru/queries?key="ваш ключ"</p>
+            <p>Ответ сервера:</p>
+                <ul>
+                    <li>
+                        count: количество запросов на парсинг
+                    </li>
+                    <li>
+                        queries: описание запросов
+                    </li>
+                </ul>
+                <li>
+                    У каждого запроса:
+                    <ul>
+                        <li>
+                            id - id запроса,
+                        </li>
+                        <li>
+                        state - состояние запроса, Возможные состояния:
+                        <ul>
+                            <li>
+                                queue - Запрос находиться в очереди на парсинг
+                            </li>
+                            <li>
+                                start - Запрсо поступил на обработку
+                            </li>
+                            <li>
+                                searching - поиск всех тендеров по заданным параметрам
+                            </li>
+                            <li>
+                                downloading - загрузка информации о тендерах
+                            </li>
+                            <li>
+                                done - Запрос обработан
+                            </li>
+                        </ul>
+                        </li>
+                    </ul>
+                    
+                    
+                </li>
+                
+            <h3 class="text-center">Получение информации о запросе</h3>
+            <p>GET: /api/queries/id, где id - id запроса</p>
+            <p>Возможные строковые параметры:
+                    key - ваш ключ API
+            </p>
+            <p>Пример запроса: https://zakupkinfo.ru/queries/3?id=</p>
+            <p>Описание ответа сервера:</p>
+                <ul>
+                    <li>
+                        history: полная информация о запросе
+                    </li>
+                    <li>
+                        tenders: список описания тендеров
+                    </li>
+                </ul>
+        </div>
+        <div class="col-md"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "form.html" %}
+
+{% block content %}
+    <table style="width: 95%;margin:auto;" border="1px" cellpadding='5px' >
+        <thead>
+            <th>номер</th>
+            <th>тип</th>
+            <th>цена</th>
+            <th>дата</th>
+            <th>обьект закупки</th>
+            <th>заказчик</th>
+            <th>место размещения</th>
+            <th>условия доставки</th>
+            <th>условия доставки</th>
+            <th>имя победителя</th>
+            <th>позиция</th>
+            <th>итоговая цена</th>
+            <th>документы</th>
+            <th>ссылка</th>
+        </thead>
+        <tbody>
+            {% for tender in tenders %}
+            <tr>
+                <td>{{tender.id}}</td>
+                <td>{{tender.type}}</td>
+                <td>{{tender.tender_price}}</td>
+                <td>{{tender.tender_date.strftime('%d.%m.%Y')}}</td>
+                <td>{{tender.tender_object}}</td>
+                <td>{{tender.customer}}</td>
+                <td>{{tender.tender_adress}}</td>
+                <td>{{tender.tender_delivery}}</td>
+                <td>{{tender.terms}}</td>
+                <td>{{tender.winner[0].name}}</td>
+                <td>{{tender.winner[0].position}}</td>
+                <td>{{tender.winner[0].price}}</td>
+                <td>{% for link in tender.document_links %}
+                    <a href="{{link.link}}">{{link.link}}</a>
+                    {% endfor %}
+                </td>
+                <td>{{tender.tender_link}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
