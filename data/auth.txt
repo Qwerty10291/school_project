@@ -1,0 +1,1 @@
+postgresql+psycopg2://zakupki:qwerty1029@127.0.0.1/zakupki

@@ -8,16 +8,16 @@ SqlAlchemyBase = dec.declarative_base()
 
 __factory = None
 
-def global_init(db_file):
+def global_init():
     global __factory
 
     if __factory:
         return
 
-    if not db_file or not db_file.strip():
-        raise Exception("Необходимо указать файл базы данных.")
-
-    conn_str = f'postgresql+psycopg2://zakupki:qwerty1029@127.0.0.1/zakupki'
+    try:
+        conn_str = open('./data/auth.txt').read()
+    except FileNotFoundError:
+        raise FileNotFoundError('создайте и укажите данные для подключения к базе данных в файле data/auth.txt')
     print(f"Подключение к базе данных по адресу {conn_str}")
 
     engine = sa.create_engine(conn_str, echo=False)

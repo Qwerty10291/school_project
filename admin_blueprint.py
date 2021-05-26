@@ -1,11 +1,10 @@
-from flask import Blueprint, render_template, redirect, abort, jsonify, request
+from flask import Blueprint, render_template, abort, request
 from flask_login import login_required, current_user
 from werkzeug.security import generate_password_hash
 import json
 import db_additions
 from utils import check_email
 from data.models import *
-from data.db_session import create_session
 
 blueprint = Blueprint('admin', __name__, template_folder='templates')
 

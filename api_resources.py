@@ -1,5 +1,4 @@
 from async_parser import AsyncParserController
-from flask.globals import session
 from data.db_session import create_session
 from flask import abort, jsonify
 from data.models import *

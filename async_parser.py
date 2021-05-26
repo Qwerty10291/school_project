@@ -10,7 +10,7 @@ from lxml.html import document_fromstring
 import re
 import random
 
-from data.db_session import create_session, global_init
+from data.db_session import create_session
 from data.models import History, Data, Objects, TenderLinks, Winners
 from datetime import datetime
 
